@@ -7,18 +7,82 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Dependencies
+node_modules/
+jspm_packages/
+bower_components/
 
-# Editor directories and files
+# Build output
+dist/
+dist-ssr/
+build/Release/
+.next/
+.nuxt/
+.output/
+.vuepress/dist/
+.svelte-kit/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Local files
+*.local
+.DS_Store
+
+# Editor directories
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Diagnostic reports
+report.*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+.nyc_output/
+*.lcov
+lib-cov/
+
+# Cache
+.cache/
+.parcel-cache/
+.grunt/
+.fusebox/
+.firebase/
+.dynamodb/
+.tern-port
+.vite/
+**/.vitepress/dist
+**/.vitepress/cache
+
+# Package managers
+.npm
+.pnpm-store/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# TypeScript
+*.tsbuildinfo
+
+# Other generated files
+*.tgz
+.yarn-integrity
+.lock-wscript
