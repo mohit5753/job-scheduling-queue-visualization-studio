@@ -1,13 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>job-scheduling-queue-visualization-studio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Scheduling &amp; Queue Visualization Studio</title>
+    <link rel="stylesheet" href="./css/jobCreation.css">
+</head>
+
+<body>
+    <main class="job-creation-page">
+        <header class="job-topbar">
+            <div class="job-navigation">
+                <button type="button" class="back-button" id="back-button">← Back</button>
+                <div class="job-breadcrumb"><span>Job List</span><span>/</span><strong class="active">Create
+                        Job</strong></div>
+            </div>
+            <div class="job-topbar-actions">
+                <button type="button" class="draft-button" id="draft-button">Save as Draft</button>
+                <button type="submit" form="job-creation-form" class="publish-button">Publish Now →</button>
+            </div>
+        </header>
+
+        <div class="job-page-heading">
+            <h1>Create Job</h1>
+            <p>Create a job posting by entering the job details below.</p>
+        </div>
+
+        <form id="job-creation-form" class="job-content-layout">
+            <section class="job-form-section">
+                <h2>Job Information</h2>
+                <div class="form-group">
+                    <label for="jobTitle">Job Title</label>
+                    <input id="jobTitle" name="jobTitle" type="text" placeholder="Enter Job Title" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobCategory">Job Category</label>
+                    <select id="jobCategory" name="jobCategory" required>
+                        <option value="" selected disabled>Select Job Category</option>
+                        <option>Housekeeping</option>
+                        <option>Administration</option>
+                        <option>Customer Service</option>
+                        <option>IT &amp; Technology</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Employment Type</span>
+                    <div class="form-options">
+                        <label class="radio-option"><input type="radio" name="employmentType" value="Part-time"
+                                required> Part-time</label>
+                        <label class="radio-option"><input type="radio" name="employmentType" value="Full-time">
+                            Full-time</label>
+                        <label class="radio-option"><input type="radio" name="employmentType" value="Internship">
+                            Internship</label>
+                        <label class="radio-option"><input type="radio" name="employmentType" value="Contract">
+                            Contract</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Job Location</span>
+                    <div class="form-options">
+                        <label class="radio-option"><input type="radio" name="jobLocation" value="Remote" required>
+                            Remote</label>
+                        <label class="radio-option"><input type="radio" name="jobLocation" value="Hybrid">
+                            Hybrid</label>
+                        <label class="radio-option"><input type="radio" name="jobLocation" value="On-site">
+                            On-site</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label for="deadline">Application Deadline</label><input id="deadline"
+                            name="deadline" type="date"></div>
+                    <div class="form-group"><label for="openings">Number of Openings</label><input id="openings"
+                            name="openings" type="number" min="1" placeholder="Enter Number of Openings" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label for="startDate">Start Date</label><input id="startDate"
+                            name="startDate" type="date"></div>
+                    <div class="form-group"><label for="endDate">End Date</label><input id="endDate" name="endDate"
+                            type="date"></div>
+                </div>
+                <div class="form-group">
+                    <label>Rate Amount (₹ INR)</label>
+                    <div class="rate-range">
+                        <input id="minRate" name="minRate" aria-label="Minimum rate" type="number" min="0"
+                            placeholder="Enter Minimum rate">
+                        <input id="maxRate" name="maxRate" aria-label="Maximum rate" type="number" min="0"
+                            placeholder="Enter Maximum rate">
+                    </div>
+                    <label class="price-range-checkbox"><input id="usePriceRange" type="checkbox" checked> Use price
+                        range</label>
+                </div>
+                <div class="form-group">
+                    <label for="description">Job Description</label>
+                    <textarea id="description" name="description" rows="6"
+                        placeholder="Describe the job responsibilities..."></textarea>
+                </div>
+            </section>
+
+            <aside class="employer-details-card">
+                <h2>Employer Details</h2>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <select id="company" name="company" required>
+                        <option value="" selected disabled>Select Company</option>
+                        <option>Royal Thai Retreats</option>
+                        <option>Other Company</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="branch">Branch</label>
+                    <select id="branch" name="branch" required>
+                        <option value="" selected disabled>Select Branch</option>
+                        <option>Phuket</option>
+                        <option>Bangkok</option>
+                        <option>Chiang Mai</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contactPerson">Contact Person</label>
+                    <input id="contactPerson" name="contactPerson" type="text" placeholder="Enter Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="countryCode">Phone Number</label>
+                    <div class="phone-input-group">
+                        <select id="countryCode" name="countryCode" aria-label="Country code" required>
+                            <option value="" selected disabled>Select country code</option>
+                            <option value="+66">+66</option>
+                            <option value="+91">+91</option>
+                            <option value="+1">+1</option>
+                        </select>
+                        <input id="phoneNumber" name="phoneNumber" type="tel" aria-label="Phone number"
+                            placeholder="Enter Phone Number" required>
+                    </div>
+                </div>
+                <div class="employer-address">
+                    <h3>Address Location</h3>
+                    <p>Krishna Market, Mathura.</p>
+                    <div class="map-preview"><span>Map Preview</span></div>
+                </div>
+            </aside>
+        </form>
+    </main>
+    <script src="./js/jobCreation/jobCreation.js"></script>
+</body>
+
 </html>
